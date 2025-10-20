@@ -1,0 +1,7 @@
+<div style="border:1px dashed #999; padding:8px; margin:8px 0;">
+	<h4>Esercizio 1 - *ngIf</h4>
+	<button (click)="toggle()">{{ show ? 'Nascondi' : 'Mostra' }}</button>
+	<div *ngIf="show" style="margin-top:8px;">
+		<p>Questo contenuto è visibile grazie a *ngIf.</p>
+	</div>
+</div>

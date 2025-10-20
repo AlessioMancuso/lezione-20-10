@@ -1,0 +1,26 @@
+<div style="border:1px dashed #999; padding:8px; margin:8px 0;">
+	<h4>Esercizio 3 - Gestione studenti</h4>
+
+	<form (ngSubmit)="add(); $event.preventDefault();" style="margin-bottom:8px;">
+		<input [(ngModel)]="newName" name="nome" placeholder="Nome" required />
+		<input [(ngModel)]="newVoto" name="voto" type="number" placeholder="Voto" required min="0" max="30" />
+		<button type="submit">Aggiungi</button>
+	</form>
+
+	<table style="width:100%; border-collapse:collapse;">
+		<thead>
+			<tr>
+				<th style="text-align:left; border-bottom:1px solid #ccc;">Nome</th>
+				<th style="text-align:left; border-bottom:1px solid #ccc;">Voto</th>
+				<th style="text-align:left; border-bottom:1px solid #ccc;">Azioni</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let s of students; let i = index">
+				<td style="padding:6px 0;">{{ s.nome }}</td>
+				<td>{{ s.voto }}</td>
+				<td><button (click)="remove(i)">Elimina</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

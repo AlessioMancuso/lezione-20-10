@@ -1,0 +1,35 @@
+<!--APP COMPONENT-->
+<div style="border:2px solid #222; padding:12px; margin:12px 0;">
+	<h2 style="margin-top:0;">APP COMPONENT (genitore)</h2>
+
+	<p>Messaggio che voglio inviare al figlio: <strong>{{ messaggio }}</strong></p>
+	<!--Componente1 (riceve messaggio)-->
+	<app-componente1 [testo]="messaggio"></app-componente1>
+
+	<hr />
+
+	<section>
+		<h3>Post (riutilizzo componente Post)</h3>
+		<!-- Esercizio: nascondere post con testo > 20 char -->
+		<ng-container *ngIf="visiblePosts.length; else noPosts">
+			<app-post
+				*ngFor="let p of visiblePosts"
+				[titolo]="p.titolo"
+				[testo]="p.testo">
+			</app-post>
+			<p>Post mostrati: {{ visiblePosts.length }}</p>
+		</ng-container>
+		<ng-template #noPosts>
+			<p>Nessun post disponibile</p>
+		</ng-template>
+	</section>
+
+	<hr />
+
+	<section>
+		<h3>Esercizi</h3>
+		<app-esercizio1></app-esercizio1>
+		<app-esercizio2></app-esercizio2>
+		<app-esercizio3></app-esercizio3>
+	</section>
+</div>
